@@ -49,27 +49,29 @@
     font-weight: 700;
   }
   
-  .section-title {
-    position: relative;
-    padding-bottom: 15px;
-    margin-bottom: 40px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
-  .section-title:after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 3px;
-    background: var(--accent-color);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
+.section-title {
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-title:after {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: var(--accent-color);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
   h3 {
     font-size: 1.5rem;
     font-weight: 600;
@@ -129,7 +131,11 @@
     transition: all var(--transition-speed) ease;
     padding: 1rem 0;
   }
-  
+  .nav-brand .logo {
+    height: 40px; /* adjust as needed */
+    width: auto;
+    margin-right: 10px;
+}
   #navbar.navbar-hidden {
     transform: translateY(-100%);
   }
@@ -258,6 +264,9 @@
   
   .highlight h3 {
     color: var(--accent-color);
+  }
+  .highlight p{
+    font-size: 1.2rem;
   }
   
   /* About Section */
@@ -562,8 +571,9 @@
 
 .research-impact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* Always two columns */
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .research-impact-card {
