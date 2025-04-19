@@ -262,16 +262,25 @@
   
   /* About Section */
   #about {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://source.unsplash.com/random/1920x1080/?education,students') no-repeat center center/cover;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
     background-attachment: fixed;
   }
-  
+  .about-section-description {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+
+  }
   .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
   }
-  
+
   .vision-mission ul {
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
@@ -299,6 +308,7 @@
   }
   
   .director-card {
+    text-align: center;
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
@@ -325,7 +335,15 @@
     font-weight: 700;
     margin-bottom: 1rem;
   }
-  
+  .director-image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 1.5rem;
+    border: 3px solid var(--accent-color);
+  }
   /* Work Section */
   #work {
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://source.unsplash.com/random/1920x1080/?education,teaching') no-repeat center center/cover;
