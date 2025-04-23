@@ -126,10 +126,18 @@
     left: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.793);
+    /* background-color: transparent; */
     box-shadow: var(--shadow);
     z-index: 1000;
     transition: all var(--transition-speed) ease;
     padding: 1rem 0;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000; /* optional, for styling text */
   }
   .nav-brand .logo {
     height: 40px; /* adjust as needed */
@@ -142,7 +150,7 @@
   
   #navbar.navbar-scrolled {
     padding: 0.5rem 0;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
@@ -207,10 +215,11 @@
   }
   
   .parallax-bg {
-    background-attachment: fixed;
+    background-color: transparent !important;
+    /* background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
   }
   
   .hero h1 {

@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Parallax effect for background sections
     const parallaxSections = document.querySelectorAll('.parallax-bg');
     
+    
     window.addEventListener('scroll', function() {
         parallaxSections.forEach(section => {
             const scrollPosition = window.pageYOffset;
