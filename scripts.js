@@ -71,32 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form Submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple validation
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
-            
-            // In a real application, you would send this data to a server
-            // For this demo, we'll just show a success message
-            alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon.`);
-            
-            // Reset form
-            contactForm.reset();
-        });
-    }
-    
     // Enhanced animation on scroll
     const animateOnScroll = function() {
         const elements = document.querySelectorAll('.highlight, .director-card, .research-area, .research-impact-card, .involved-card, .section-title, .stats-item');
@@ -316,3 +290,44 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// Send Email using EmailJS
+// Initialize EmailJS
+function initEmailJS() {
+    emailjs.init("GhJc_wDLWZWLjuKut"); // EmailJS Public Key
+}
+
+// Method to send email using EmailJS
+// Send email using EmailJS
+function setupEmailForm(formId) {
+    const form = document.getElementById(formId);
+    
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            emailjs.sendForm('service_mxwwcdn', 'template_3puz5o9', form)
+                .then(function (response) {
+                    alert(`Thank you, ${name}! Your message has been sent successfully.`);
+                    form.reset();
+                    console.log("SUCCESS", response);
+                }, function (error) {
+                    alert("Failed to send email. Please try again.");
+                    console.error("FAILED", error);
+                });
+        });
+    }
+}
+
+initEmailJS();
+setupEmailForm('contactForm');
