@@ -1,0 +1,307 @@
+/* Training Page Specific Styles */
+
+.page-header {
+  background: linear-gradient(rgba(26, 75, 132, 0.9), rgba(44, 83, 100, 0.9)), url("https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg") no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 150px 0 80px;
+  margin-top: 80px;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.page-header p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* Training Introduction */
+.training-introduction {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.training-introduction-detail {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #555;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.training-introduction-detail.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Training Domains */
+.training-domains {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.training-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 2.5rem;
+}
+
+.training-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed) ease;
+  opacity: 0;
+  transform: translateY(30px);
+  position: relative;
+  overflow: hidden;
+}
+
+.training-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.training-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.training-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+  transform: scaleX(0);
+  transition: transform var(--transition-speed) ease;
+}
+
+.training-card:hover:before {
+  transform: scaleX(1);
+}
+
+.training-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  transition: all var(--transition-speed) ease;
+}
+
+.training-card:hover .training-icon {
+  transform: scale(1.2);
+}
+
+.training-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+  transition: color var(--transition-speed) ease;
+}
+
+.training-card:hover h3 {
+  color: var(--accent-color);
+}
+
+.training-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.training-card ul li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+  color: #666;
+  transition: all var(--transition-speed) ease;
+}
+
+.training-card:hover ul li {
+  color: #333;
+  transform: translateX(5px);
+}
+
+.training-card ul li:before {
+  content: "✓";
+  color: var(--accent-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  transition: all var(--transition-speed) ease;
+}
+
+.training-card:hover ul li:before {
+  color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.training-card ul li strong {
+  color: var(--primary-color);
+  transition: color var(--transition-speed) ease;
+}
+
+.training-card:hover ul li strong {
+  color: var(--accent-color);
+}
+
+/* Training Approach Section */
+.training-approach {
+  background: white;
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 3rem;
+}
+
+.approach-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.approach-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.approach-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  transition: color var(--transition-speed) ease;
+}
+
+.approach-title:hover {
+  color: var(--accent-color);
+}
+
+.approach-title:after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.approach-card {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.approach-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.approach-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(180deg, var(--accent-color), var(--primary-color));
+  transition: height var(--transition-speed) ease;
+}
+
+.approach-card:hover:before {
+  height: 100%;
+}
+
+.approach-card p {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.approach-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.approach-card ul li {
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #666;
+  transition: all var(--transition-speed) ease;
+}
+
+.approach-card:hover ul li {
+  color: #333;
+  transform: translateX(5px);
+}
+
+.approach-card ul li:before {
+  content: "→";
+  color: var(--accent-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  transition: all var(--transition-speed) ease;
+}
+
+.approach-card:hover ul li:before {
+  content: "✓";
+  color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 120px 0 60px;
+  }
+  
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .training-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .training-card {
+    padding: 2rem;
+  }
+  
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .approach-card {
+    padding: 2rem;
+  }
+  
+  .training-introduction-detail {
+    font-size: 1.1rem;
+  }
+  
+  .approach-title {
+    font-size: 1.6rem;
+  }
+}
