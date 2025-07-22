@@ -2,40 +2,53 @@
 
 /* Hero Section */
 .hero {
-  min-height: 80vh;
   position: relative;
-  overflow: hidden;
-  padding-top: 80px;
+    height: 100vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    overflow: hidden;
 }
 
 /* Hero Slider */
 .hero-slider {
-  position: relative;
+  position: absolute;
   width: 100%;
-  height: 80vh;
-  overflow: hidden;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .slide {
-  display: none;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  animation: slideIn 0.8s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: 
+    opacity 1s ease-in-out,
+    transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  z-index: 1;
 }
 
 .slide.active {
-  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
 }
 
 .slide img {
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  object-fit: cover;
+  object-fit: center;
 }
 
 .slide-content {
@@ -64,61 +77,6 @@
   font-size: 1.5rem;
   margin-bottom: 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-/* Slider Navigation */
-.slider-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 126, 0, 0.8);
-  color: white;
-  border: none;
-  padding: 15px 20px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  z-index: 3;
-}
-
-.slider-nav:hover {
-  background: var(--accent-color);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.slider-nav.prev {
-  left: 20px;
-}
-
-.slider-nav.next {
-  right: 20px;
-}
-
-/* Slider Dots */
-.slider-dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 3;
-}
-
-.dot {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dot.active,
-.dot:hover {
-  background: var(--accent-color);
-  transform: scale(1.2);
 }
 
 /* Slide Animation */
@@ -241,7 +199,7 @@
 }
 
 .highlight {
-  background: white;
+  background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   padding: 2rem;

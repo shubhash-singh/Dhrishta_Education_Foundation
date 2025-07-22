@@ -21,19 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dots[index].classList.add('active');
     }
     
-    // Manual navigation functions (global scope for onclick)
-    window.changeSlide = function(direction) {
-        currentSlideIndex += direction;
-        if (currentSlideIndex >= totalSlides) currentSlideIndex = 0;
-        if (currentSlideIndex < 0) currentSlideIndex = totalSlides - 1;
-        showSlide(currentSlideIndex);
-    };
-    
-    window.currentSlide = function(index) {
-        currentSlideIndex = index - 1;
-        showSlide(currentSlideIndex);
-    };
-    
+
     // Auto-play slider every 5 seconds
     setInterval(nextSlide, 5000);
     
