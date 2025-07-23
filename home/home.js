@@ -1,80 +1,84 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Image Slider Functionality
-    let currentSlideIndex = 0;
+    
+    // Image slider functionality
     const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = slides.length;
+    let currentSlide = 0;
     
-    // Auto slide functionality
     function nextSlide() {
-        currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
-        showSlide(currentSlideIndex);
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
     }
     
-    function showSlide(index) {
-        // Hide all slides
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        // Show current slide
-        slides[index].classList.add('active');
-        dots[index].classList.add('active');
-    }
-    
-
-    // Auto-play slider every 5 seconds
+    // Auto-advance slides every 5 seconds
     setInterval(nextSlide, 5000);
     
-    // Pause auto-play on hover
-    const slider = document.querySelector('.hero-slider');
-    let autoPlayInterval = setInterval(nextSlide, 5000);
-    
-    slider.addEventListener('mouseenter', () => {
-        clearInterval(autoPlayInterval);
-    });
-    
-    slider.addEventListener('mouseleave', () => {
-        autoPlayInterval = setInterval(nextSlide, 5000);
-    });
-    
-    // Parallax effect for hero background
-    const heroContent = document.querySelector('.hero-content');
-    
-    if (heroContent) {
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.pageYOffset;
-            const parallaxSpeed = 0.5;
-            
-            if (scrollPosition < window.innerHeight) {
-                heroContent.style.transform = `translateY(${scrollPosition * parallaxSpeed * 0.3}px)`;
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
-    }
+    });
     
-    // Animate mission highlights on scroll
-    const highlights = document.querySelectorAll('.highlight');
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 100) {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.boxShadow = 'none';
+        }
+    });
     
-    const animateHighlights = function() {
-        highlights.forEach((highlight, index) => {
-            const elementPosition = highlight.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementPosition < windowHeight - 100) {
-                setTimeout(() => {
-                    highlight.style.opacity = '1';
-                    highlight.style.transform = 'translateY(0)';
-                }, index * 200);
-            }
-        });
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
     
-    // Set initial state for highlights
-    highlights.forEach(highlight => {
-        highlight.style.opacity = '0';
-        highlight.style.transform = 'translateY(30px)';
-        highlight.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe highlight cards
+    document.querySelectorAll('.highlight').forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+        observer.observe(el);
     });
     
+    // Notification item interactions
+    document.querySelectorAll('.notification-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const text = this.querySelector('strong').textContent;
+            console.log('Clicked:', text);
+            // Add navigation logic here
+        });
+    });
+    
+    // Mobile menu toggle (basic implementation)
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn?.addEventListener('click', function() {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    });
+    // Animate mission highlights on scroll
     window.addEventListener('scroll', animateHighlights);
     setTimeout(animateHighlights, 100);
     
@@ -100,6 +104,35 @@ document.addEventListener('DOMContentLoaded', function() {
         item.style.opacity = '0';
         item.style.transform = 'translateY(20px)';
         item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        
+        // Add click event to redirect to gallery
+        item.addEventListener('click', function() {
+            const notificationText = this.querySelector('.notification-text strong').textContent;
+            let targetSection = '';
+            
+            // Map notification types to gallery sections
+            if (notificationText.includes('Research Grant')) {
+                targetSection = '#research-grants';
+            } else if (notificationText.includes('Faculty Development') || notificationText.includes('Training')) {
+                targetSection = '#training-programs';
+            } else if (notificationText.includes('Community Health')) {
+                targetSection = '#community-health';
+            } else if (notificationText.includes('Technology Partnership')) {
+                targetSection = '#technology-partnerships';
+            } else if (notificationText.includes('Research Publication')) {
+                targetSection = '#research-publications';
+            } else if (notificationText.includes('Student Achievement')) {
+                targetSection = '#student-achievements';
+            }
+            
+            // Redirect to gallery page with specific section
+            if (targetSection) {
+                window.location.href = `gallery/gallery.html${targetSection}`;
+            }
+        });
+        
+        // Add hover effect to indicate clickability
+        item.style.cursor = 'pointer';
     });
     
     window.addEventListener('scroll', animateNotifications);

@@ -49,6 +49,14 @@ h2 {
   font-weight: 700;
 }
 
+.section-subtitle {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
 .section-title {
   position: relative;
   padding-bottom: 15px;
@@ -95,6 +103,151 @@ a {
 
 .section:nth-child(even) {
   background-color: #f5f8fa;
+}
+
+/* About Section Styles */
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.about-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed) ease;
+  opacity: 0;
+  transform: translateY(30px);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.about-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+  transform: scaleX(0);
+  transition: transform var(--transition-speed) ease;
+}
+
+.about-card:hover:before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.about-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.about-card p {
+  color: #666;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Vision Mission Section */
+.vision-mission-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+}
+
+.vision-mission-card {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed) ease;
+  opacity: 0;
+  transform: translateY(30px);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.vision-mission-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vision-mission-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.vision-mission-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(180deg, var(--accent-color), var(--primary-color));
+  transition: height var(--transition-speed) ease;
+}
+
+.vision-mission-card:hover:before {
+  height: 100%;
+}
+
+.vision-mission-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.vision-mission-card p {
+  color: #666;
+  line-height: 1.7;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.vision-mission-card ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.vision-mission-card ul li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #666;
+  line-height: 1.6;
+}
+
+.vision-mission-card ul li:before {
+  content: "✓";
+  color: var(--accent-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
 }
 
 .cta-button {
@@ -290,10 +443,25 @@ footer {
   flex-wrap: wrap;
 }
 
+.social-links a {
+  color: white;
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1rem;
   text-align: center;
+}
+
+.copyright {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Animation Classes */
@@ -310,6 +478,10 @@ footer {
 
   h2 {
     font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem;
   }
 
   .nav-brand {
@@ -352,6 +524,24 @@ footer {
 
   .section {
     padding: 3rem 0;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .about-card {
+    padding: 2rem;
+  }
+  
+  .vision-mission-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .vision-mission-card {
+    padding: 2rem;
   }
 
   .stats-grid {

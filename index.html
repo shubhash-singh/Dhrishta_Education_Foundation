@@ -7,13 +7,12 @@
     <link rel="icon" href="assets/images/Dhrishta_logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home/home.css">
 </head>
 <body>
     <nav id="navbar">
-        <div class="container">
+        <div class="nav-container">
             <div class="nav-brand">
                 <img src="assets/images/Dhrishta_logo.png" alt="logo" class="logo">
                 Dhrishta Foundation
@@ -23,51 +22,40 @@
                 <li><a href="about/about.html">About Us</a></li>
                 <li><a href="research/research.html">Research</a></li>
                 <li><a href="training/training.html">Training</a></li>
+                <li><a href="gallery/gallery.html">Gallery</a></li>
                 <li><a href="contact/contact.html">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
 
-    <section id="home" class="hero parallax-bg">
-        <div class="container">
-            <!-- Image Slider -->
-            <div class="hero-slider">
-                <div class="slide active">
-                    <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg" alt="Education Research">
-                    <div class="slide-content">
-                        <h1>Dhrishta Educational and Research Foundation</h1>
-                        <h3>Pioneering Research, Driving Innovation, Transforming Communities</h3>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg" alt="Healthcare Innovation">
-                    <div class="slide-content">
-                        <h1>Dhrishta Educational and Research Foundation</h1>
-                        <h3>Pioneering Research, Driving Innovation, Transforming Communities</h3>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg" alt="Community Development">
-                    <div class="slide-content">
-                        <h1>Dhrishta Educational and Research Foundation</h1>
-                        <h3>Pioneering Research, Driving Innovation, Transforming Communities</h3>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg" alt="Research Excellence">
-                    <div class="slide-content">
-                        <h1>Dhrishta Educational and Research Foundation</h1>
-                        <h3>Pioneering Research, Driving Innovation, Transforming Communities</h3>
-                    </div>
-                </div>
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="slide active">
+                <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg" alt="Education Research">
+            </div>
+            <div class="slide">
+                <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg" alt="Healthcare Innovation">
+            </div>
+            <div class="slide">
+                <img src="https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg" alt="Community Development">
+            </div>
+            <div class="slide">
+                <img src="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg" alt="Research Excellence">
+            </div>
+        </div>
+        <div class="slide-content">
+            <h1>Dhrishta Educational and Research Foundation</h1>
+            <h3>Pioneering Research, Driving Innovation, Transforming Communities</h3>
+            <div class="hero-cta">
+                <a href="about/about.html" class="btn-primary">Discover Our Mission</a>
+                <a href="contact/contact.html" class="btn-secondary">Join Our Journey</a>
             </div>
         </div>
     </section>
 
-    <!-- Notification Scrolling Section -->
     <section class="notification-section">
-        <div class="notification-container">
+        <div class="container">
             <h3 class="notification-title">Latest Updates & Achievements</h3>
             <div class="notification-scroll">
                 <div class="notification-item">
@@ -117,18 +105,21 @@
     </section>
 
     <section class="hero-content">
-        <div class="container"3>
-            <p class="lead">Welcome to <b>Dhrishta Educational Foundation</b> — a Section-8 nonprofit organization dedicated to advancing knowledge through cutting-edge research, innovative technologies, and evidence-based solutions. Registered under the Companies Act, 2013, our foundation is building a robust R&D ecosystem that addresses critical challenges in education, healthcare, and community development.</p>
+        <div class="container">
+            <p class="lead">Welcome to <strong>Dhrishta Educational Foundation</strong> — a Section-8 nonprofit organization dedicated to advancing knowledge through cutting-edge research, innovative technologies, and evidence-based solutions. Registered under the Companies Act, 2013, our foundation is building a robust R&D ecosystem that addresses critical challenges in education, healthcare, and community development.</p>
             <div class="mission-highlights">
                 <div class="highlight">
+                    <div class="highlight-icon">🎓</div>
                     <h3>Knowledge Creation</h3>
                     <p>Establishing research centers, laboratories, and think tanks focused on pioneering solutions to educational and healthcare challenges.</p>
                 </div>
                 <div class="highlight">
+                    <div class="highlight-icon">⚕️</div>
                     <h3>Healthcare Innovation</h3>
                     <p>Developing medical research facilities that investigate indigenous solutions and next-generation treatment approaches.</p>
                 </div>
                 <div class="highlight">
+                    <div class="highlight-icon">🔬</div>
                     <h3>Applied Research</h3>
                     <p>Implementing evidence-based community programs informed by rigorous research methodologies and data analytics.</p>
                 </div>
@@ -136,20 +127,17 @@
         </div>
     </section>
 
-
-
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Make a Difference?</h2>
             <p>Join us in our mission to transform communities through education, research, and innovation.</p>
             <div class="cta-buttons">
-                <a href="about/about.html" class="cta-button">Learn More</a>
-                <a href="contact/contact.html" class="cta-button secondary">Get Involved</a>
+                <a href="about/about.html" class="btn-primary">Learn More</a>
+                <a href="contact/contact.html" class="btn-secondary">Get Involved</a>
             </div>
         </div>
     </section>
 
-            
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -157,9 +145,10 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="../about/about.html">About Us</a></li>
                         <li><a href="../research/research.html">Research</a></li>
-                        <li><a href="../training/training.html">Training</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="../gallery/gallery.html">Gallery</a></li>
                         <li><a href="../contact/contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -187,7 +176,6 @@
         </div>
     </footer>
     
-    <script src="assets/js/global.js"></script>
     <script src="home/home.js"></script>
 </body>
 </html>
