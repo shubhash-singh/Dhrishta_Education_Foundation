@@ -1,84 +1,65 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Background Image Slider
+    const heroSection = document.querySelector('.hero');
+    const backgroundImages = [
+        'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg',
+        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
+        'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg',
+        'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg'
+    ];
     
-    // Image slider functionality
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
+    let currentImageIndex = 0;
     
-    function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
+    // Set initial background
+    heroSection.style.backgroundImage = `url(${backgroundImages[currentImageIndex]})`;
+    
+    // Auto change background
+    function changeBackground() {
+        currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        heroSection.style.backgroundImage = `url(${backgroundImages[currentImageIndex]})`;
     }
     
-    // Auto-advance slides every 5 seconds
-    setInterval(nextSlide, 5000);
+    // Change background every 5 seconds
+    setInterval(changeBackground, 5000);
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+    // Parallax effect for hero background
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (heroContent) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const parallaxSpeed = 0.5;
+            
+            if (scrollPosition < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrollPosition * parallaxSpeed * 0.3}px)`;
             }
         });
-    });
+    }
     
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.boxShadow = 'none';
-        }
-    });
+    // Animate mission highlights on scroll
+    const highlights = document.querySelectorAll('.highlight');
     
-    // Animate elements on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    const animateHighlights = function() {
+        highlights.forEach((highlight, index) => {
+            const elementPosition = highlight.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                setTimeout(() => {
+                    highlight.style.opacity = '1';
+                    highlight.style.transform = 'translateY(0)';
+                }, index * 200);
+            }
+        });
     };
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe highlight cards
-    document.querySelectorAll('.highlight').forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
-        observer.observe(el);
+    // Set initial state for highlights
+    highlights.forEach(highlight => {
+        highlight.style.opacity = '0';
+        highlight.style.transform = 'translateY(30px)';
+        highlight.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     });
     
-    // Notification item interactions
-    document.querySelectorAll('.notification-item').forEach(item => {
-        item.addEventListener('click', function() {
-            const text = this.querySelector('strong').textContent;
-            console.log('Clicked:', text);
-            // Add navigation logic here
-        });
-    });
-    
-    // Mobile menu toggle (basic implementation)
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    mobileMenuBtn?.addEventListener('click', function() {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    });
-    // Animate mission highlights on scroll
     window.addEventListener('scroll', animateHighlights);
     setTimeout(animateHighlights, 100);
     
