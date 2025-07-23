@@ -70,7 +70,10 @@ body {
     color: var(--primary-color);
     font-family: 'Poppins', sans-serif;
 }
-
+.nav-brand:hover{
+    color: var(--accent-color);
+    
+}
 .logo {
     width: 40px;
     height: 40px;
