@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Background Image Slider
     const heroSection = document.querySelector('.hero');
     const backgroundImages = [
-        'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg',
-        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
-        'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg',
-        'https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg'
+        '../assets/images/atudents_outside.jpg',
+        '../assets/images/class_from_behind.jpg',
+        '../assets/images/class_students_only.jpg',
+        '../assets/images/lab_with_student.jpg'
     ];
     
     let currentImageIndex = 0;
@@ -15,12 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Auto change background
     function changeBackground() {
+        
         currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
         heroSection.style.backgroundImage = `url(${backgroundImages[currentImageIndex]})`;
     }
     
     // Change background every 5 seconds
-    setInterval(changeBackground, 5000);
+    setInterval(changeBackground, 8000);
     
     // Parallax effect for hero background
     const heroContent = document.querySelector('.hero-content');
