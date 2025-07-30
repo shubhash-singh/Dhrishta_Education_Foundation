@@ -1,7 +1,7 @@
 /* Training Page Specific Styles */
 
 .page-header {
-  background: linear-gradient(rgba(26, 75, 132, 0.9), rgba(44, 83, 100, 0.9)), url("https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg") no-repeat center center/cover;
+  background: linear-gradient(rgba(26, 75, 132, 0.9), rgba(44, 83, 100, 0.9)), url("../assets/images/background_images/bg_training_header.jpeg") no-repeat center center/cover;
   color: white;
   text-align: center;
   padding: 150px 0 80px;
