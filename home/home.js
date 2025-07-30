@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Background Image Slider
     const heroSection = document.querySelector('.hero');
     const backgroundImages = [
-        "../assets/images/students_outside.jpg",
-        '../assets/images/class_from_behind.jpg',
-        '../assets/images/class_students_only.jpg',
-        '../assets/images/lab_with_student.jpg'
+        'assets/images/students_outside.jpg',
+        'assets/images/class_from_behind.jpg',
+        'assets/images/class_students_only.jpg',
+        'assets/images/lab_with_student.jpg'
     ];
     
     let currentImageIndex = 0;
